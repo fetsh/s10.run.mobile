@@ -10,6 +10,7 @@
 // @updateURL https://raw.githubusercontent.com/fetsh/s10.run.mobile/master/s10.run.mobile.user.js
 // @downloadURL https://raw.githubusercontent.com/fetsh/s10.run.mobile/master/s10.run.mobile.user.js
 // @include      /https://s10.run/\?\d+&mobile.*/
+// @require https://s10.run/i/jquery-3.3.1.min.js
 // @grant GM_addStyle
 // @grant GM_getValue
 // @grant GM_setValue
@@ -31,13 +32,24 @@
 
         initialize: function () {
             S10.addMeta();
-            S10.onEvent(window, 'DOMContentLoaded', S10.addNavBar);
+            S10.resolveStyles();
+            S10.onEvent(window, 'DOMContentLoaded', S10.removeElements);
+            S10.onEvent(window, 'DOMContentLoaded', S10.changeThings);
 
+            // S10.onEvent(window, 'DOMContentLoaded', S10.addNavBar);
             // S10.checkUpdate(true); // check if S10Script is up to date.
 
         },
         getVersion: function () {
             return Number(S10.version);
+        },
+        addStyle: function (css) {
+            css = css.replace(/;/g, ' !important;');
+            if (typeof GM_addStyle != 'undefined') {
+                GM_addStyle(css);
+            } else {
+                document.head.appendChild(document.createElement('style')).innerHTML = css;
+            }
         },
         setValue: function (name, value) {
             if (typeof GM_setValue !== "undefined") {
@@ -223,6 +235,25 @@
             //     }
             // });
         },
+        resolveStyles: function () {
+            S10.addStyle(".training__statistics__table {display: none; }")
+            S10.addStyle("div.container nav.navbar.navbar-inverse.bottom-nav.navbar-fixed-bottom { display: none; }")
+            S10.addStyle("body > div.container > div.row > div.col-xs-12 { display: none; }")
+            S10.addStyle("div#divschart { display: none; }")
+            S10.addStyle("nav.navbar button {display: none;}")
+            S10.addStyle("nav.navbar {margin-bottom: 0px;}")
+            S10.addStyle("nav.navbar .navbar-collapse {display: none;}")
+            S10.addStyle("div#chat {display: none;}")
+            S10.addStyle("div.row.training {padding: 15px;}")
+            S10.addStyle(".training__date {text-align: left;}")
+            S10.addStyle("div.row.training .training__statistics {display: none;}")
+            S10.addStyle(".training__info:not(:last-child):after {display: none;}")
+            S10.addStyle(".row > .row {margin: 0px;}")
+            S10.addStyle(".training__content__date {font-size:13px;}")
+            S10.addStyle(".training__response {margin-top:10x;}")
+            S10.addStyle(".training__response-text {padding:10x;}")
+            S10.addStyle(".training--current .training__info .row:first-child {display: none;}")
+        },
         addMeta: function () {
             // <meta http-equiv="X-UA-Compatible" content="IE=edge">
             // <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -235,12 +266,29 @@
             document.getElementsByTagName('head')[0].appendChild(meta1);
             document.getElementsByTagName('head')[0].appendChild(meta2);
         },
-        addNavBar: function () {
-            var nav = document.createElement('nav');
-            nav.setAttribute("class", 'navbar navbar-default navbar-fixed-top navbar-inverse');
-            nav.setAttribute("role", 'navigation')
-            nav.innerHTML = "<div class='container-fluid'><div class='navbar-header'><button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'><span class='sr-only'>Toggle navigation</span><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span></button><a class='navbar-brand' href='/'>s10</a></div><div class='navbar-collapse collapse'><ul class='nav navbar-nav '></ul><ul class='nav navbar-nav navbar-right'><li><p class='navbar-text'>@fetshme (Ilia Zemskov)</p></li><li><a rel='nofollow' data-method='delete' href='/'>Log Out</a></li></ul></div></div>"
-            document.body.appendChild(nav);
+        removeElements: function () {
+            var chartsButton = document.evaluate("//div[@class='row training'][div[@class='col-xs-12']]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            chartsButton.remove();
+            var divschart = document.evaluate("//div[@id='divschart']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            divschart.remove();
+            var chat = document.evaluate("//div[@id='chat']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            chat.remove();
+        },
+        changeThings: function () {
+            var training_dates = document.getElementsByClassName('training__date');
+            for (let item of training_dates) {
+                item.classList.remove("col-xs-3");
+                item.classList.add("col-xs-4");
+            }
+            var training_infos = document.getElementsByClassName('training__info');
+            for (let item of training_infos) {
+                item.classList.remove("col-xs-6");
+                item.classList.add("col-xs-8");
+            }
+            var response_buttons = document.getElementsByClassName('pull-left training__response--send')
+            for (let item of response_buttons) {
+                item.textContent = "Отправить"
+            }
         }
     };
 
