@@ -3,7 +3,7 @@
 // @namespace https://s10.run
 // @description Makes s10 on mobile devices a little bit more useable
 // @author fetsh
-// @version 0.8
+// @version 0.9
 // @encoding utf-8
 // @homepage https://github.com/fetsh/s10.run.mobile/
 // @supportURL https://github.com/fetsh/s10.run.mobile/issues
@@ -64,8 +64,6 @@
             S10.addStyle("@media (max-width: 768px) { nav.navbar .navbar-collapse {display: none;} }")
             S10.addStyle("@media (max-width: 768px) { nav.navbar button {display: none;} }")
             S10.addStyle("@media (max-width: 768px) { nav.navbar button.logoutButton {display: inline; position: relative; float: right; margin-right: 15px;} }")
-            S10.addStyle("@media (max-width: 768px) { .training.seven-cols .col-sm-1 br {display: none;} }")
-            S10.addStyle("@media (max-width: 768px) { div.row.training.seven-cols div:last-child { bottom: 7px; } }")
             S10.addStyle("body > div.container > div.row > div.col-xs-12 { display: none; }")
             S10.addStyle("div#divschart { display: none; }")
             S10.addStyle("nav.navbar { margin-bottom: 0px; }")
