@@ -3,7 +3,7 @@
 // @namespace https://s10.run
 // @description Makes s10 on mobile devices a little bit more useable
 // @author fetsh
-// @version 0.3
+// @version 0.4
 // @encoding utf-8
 // @homepage https://github.com/fetsh/s10.run.mobile/
 // @supportURL https://github.com/fetsh/s10.run.mobile/issues
