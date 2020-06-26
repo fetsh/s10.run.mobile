@@ -3,7 +3,7 @@
 // @namespace https://s10.run
 // @description Makes s10 on mobile devices a little bit more useable
 // @author fetsh
-// @version 0.6
+// @version 0.7
 // @encoding utf-8
 // @homepage https://github.com/fetsh/s10.run.mobile/
 // @supportURL https://github.com/fetsh/s10.run.mobile/issues
@@ -47,16 +47,7 @@
             S10.onEvent(window, 'load', callback);
         },
         resolveStyles: function () {
-            S10.addStyle("div.container nav.navbar.navbar-inverse.bottom-nav.navbar-fixed-bottom { display: none; }")
-            S10.addStyle("body > div.container > div.row > div.col-xs-12 { display: none; }")
-            S10.addStyle("div#divschart { display: none; }")
-            S10.addStyle("nav.navbar {margin-bottom: 0px;}")
-            S10.addStyle("@media (max-width: 768px) { nav.navbar .navbar-collapse {display: none;} }")
-            S10.addStyle("@media (max-width: 768px) { nav.navbar button {display: none;} }")
-            S10.addStyle("@media (max-width: 768px) { nav.navbar button.logoutButton {display: inline; position: relative; float: right; margin-right: 15px;} }")
-            S10.addStyle("div#chat {display: none;}")
-            S10.addStyle("div.row.training {padding: 15px;}")
-            S10.addStyle("div.row.training.seven-cols div:last-child {bottom: 19px;}")
+            S10.addStyle("@media (max-width: 768px) { div.container nav.navbar.navbar-inverse.bottom-nav.navbar-fixed-bottom { display: none; } }")
             S10.addStyle("@media (max-width: 768px) { .training__label { font-weight: 300; } }")
             S10.addStyle("@media (max-width: 768px) { .training__date .training__label { white-space: nowrap; } }")
             S10.addStyle("@media (max-width: 768px) { .training__date {text-align: left; width: 33%; } }")
@@ -70,14 +61,24 @@
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics .training__label { color: orange; position: absolute; right: 35px; top: 2px; white-space: nowrap; font-size: 14px; } }")
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 form {display: none;} }")
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__tracker {display: none;} }")
-            // S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics {display: block;} }")
+            S10.addStyle("@media (max-width: 768px) { nav.navbar .navbar-collapse {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { nav.navbar button {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { nav.navbar button.logoutButton {display: inline; position: relative; float: right; margin-right: 15px;} }")
+            S10.addStyle("@media (max-width: 768px) { .training.seven-cols .col-sm-1 br {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training.seven-cols div:last-child { bottom: 7px; } }")
+
+            S10.addStyle("body > div.container > div.row > div.col-xs-12 { display: none; }")
+            S10.addStyle("div#divschart { display: none; }")
+            S10.addStyle("nav.navbar { margin-bottom: 0px; }")
+            S10.addStyle("div#chat {display: none;}")
+            S10.addStyle("div.row.training { padding: 15px; }")
+            S10.addStyle("div.row.training.seven-cols div:last-child { bottom: 19px; }")
             S10.addStyle(".training__info:not(:last-child):after {display: none;}")
             S10.addStyle(".row > .row {margin: 0px;}")
             S10.addStyle(".training__content__date {font-size:13px;}")
             S10.addStyle(".training__response {margin-top:10x;}")
             S10.addStyle(".training__response-text {padding:10x;}")
             S10.addStyle(".training--current .training__info .row:first-child {display: none;}")
-            S10.addStyle("@media (max-width: 768px) { .training.seven-cols .col-sm-1 br {display: none;} }")
         },
         addMeta: function () {
             // <meta http-equiv="X-UA-Compatible" content="IE=edge">
