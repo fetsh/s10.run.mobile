@@ -3,7 +3,7 @@
 // @namespace https://s10.run
 // @description Makes s10 on mobile devices a little bit more useable
 // @author fetsh
-// @version 0.2
+// @version 0.3
 // @encoding utf-8
 // @homepage https://github.com/fetsh/s10.run.mobile/
 // @supportURL https://github.com/fetsh/s10.run.mobile/issues
@@ -47,25 +47,25 @@
             S10.onEvent(window, 'load', callback);
         },
         resolveStyles: function () {
-            S10.addStyle(".training__statistics__table {display: none; }")
             S10.addStyle("div.container nav.navbar.navbar-inverse.bottom-nav.navbar-fixed-bottom { display: none; }")
             S10.addStyle("body > div.container > div.row > div.col-xs-12 { display: none; }")
             S10.addStyle("div#divschart { display: none; }")
-            S10.addStyle("nav.navbar button {display: none;}")
             S10.addStyle("nav.navbar {margin-bottom: 0px;}")
-            S10.addStyle("nav.navbar .navbar-collapse {display: none;}")
+            S10.addStyle("@media (max-width: 768px) { nav.navbar .navbar-collapse {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { nav.navbar button {display: none;} }")
             S10.addStyle("div#chat {display: none;}")
             S10.addStyle("div.row.training {padding: 15px;}")
-            S10.addStyle(".training__date {text-align: left; width: 33.33333333%; }")
-            S10.addStyle(".training__info {text-align: left; width: 66.66666667%; }")
-            S10.addStyle("div.row.training .training__statistics {display: none;}")
+            S10.addStyle("@media (max-width: 768px) { .training__date {text-align: left; width: 33.33333333%; } }")
+            S10.addStyle("@media (max-width: 768px) { .training__info {text-align: left; width: 66.66666667%; } }")
+            S10.addStyle("@media (max-width: 768px) { .training__statistics__table {display: none; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .training__statistics {display: none;} }")
             S10.addStyle(".training__info:not(:last-child):after {display: none;}")
             S10.addStyle(".row > .row {margin: 0px;}")
             S10.addStyle(".training__content__date {font-size:13px;}")
             S10.addStyle(".training__response {margin-top:10x;}")
             S10.addStyle(".training__response-text {padding:10x;}")
             S10.addStyle(".training--current .training__info .row:first-child {display: none;}")
-            S10.addStyle(".training.seven-cols .col-sm-1 br {display: none;}")
+            S10.addStyle("@media (max-width: 768px) { .training.seven-cols .col-sm-1 br {display: none;} }")
         },
         addMeta: function () {
             // <meta http-equiv="X-UA-Compatible" content="IE=edge">
