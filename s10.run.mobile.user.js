@@ -3,7 +3,7 @@
 // @namespace https://s10.run
 // @description Makes s10 on mobile devices a little bit more useable
 // @author fetsh
-// @version 0.4
+// @version 0.5
 // @encoding utf-8
 // @homepage https://github.com/fetsh/s10.run.mobile/
 // @supportURL https://github.com/fetsh/s10.run.mobile/issues
@@ -56,6 +56,7 @@
             S10.addStyle("@media (max-width: 768px) { nav.navbar button.logoutButton {display: inline; position: relative; float: right; margin-right: 15px;} }")
             S10.addStyle("div#chat {display: none;}")
             S10.addStyle("div.row.training {padding: 15px;}")
+            S10.addStyle("div.row.training.seven-cols div:last-child {bottom: 19px;}")
             S10.addStyle("@media (max-width: 768px) { .training__date .training__label { white-space: nowrap; } }")
             S10.addStyle("@media (max-width: 768px) { .training__date {text-align: left; width: 33%; } }")
             S10.addStyle("@media (max-width: 768px) { .training__info {text-align: left; width: 67%; margin-bottom: 20px; padding: 0px; } }")
@@ -64,8 +65,8 @@
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics .training__statistics__table:before {right: 15px; } }")
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__table thead {display: none; } }")
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__table tbody {display: none; } }")
-            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics .training__label { position: absolute; right: 20px; top: 3px; white-space: nowrap; font-size: 14px; } }")
-            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics .training__label { color: orange; position: absolute; right: 35px; top: 3px; white-space: nowrap; font-size: 14px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics .training__label { position: absolute; right: 20px; top: 2px; white-space: nowrap; font-size: 14px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics .training__label { color: orange; position: absolute; right: 35px; top: 2px; white-space: nowrap; font-size: 14px; } }")
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 form {display: none;} }")
             S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__tracker {display: none;} }")
             // S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics {display: block;} }")
