@@ -53,12 +53,22 @@
             S10.addStyle("nav.navbar {margin-bottom: 0px;}")
             S10.addStyle("@media (max-width: 768px) { nav.navbar .navbar-collapse {display: none;} }")
             S10.addStyle("@media (max-width: 768px) { nav.navbar button {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { nav.navbar button.logoutButton {display: inline; position: relative; float: right; margin-right: 15px;} }")
             S10.addStyle("div#chat {display: none;}")
             S10.addStyle("div.row.training {padding: 15px;}")
-            S10.addStyle("@media (max-width: 768px) { .training__date {text-align: left; width: 33.33333333%; } }")
-            S10.addStyle("@media (max-width: 768px) { .training__info {text-align: left; width: 66.66666667%; } }")
-            S10.addStyle("@media (max-width: 768px) { .training__statistics__table {display: none; } }")
-            S10.addStyle("@media (max-width: 768px) { div.row.training .training__statistics {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { .training__date .training__label { white-space: nowrap; } }")
+            S10.addStyle("@media (max-width: 768px) { .training__date {text-align: left; width: 33%; } }")
+            S10.addStyle("@media (max-width: 768px) { .training__info {text-align: left; width: 67%; margin-bottom: 20px; padding: 0px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-6 + .col-xs-3 {width: 0%; margin: 0px; padding: 0px;} }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__table:before {content: '\\2714'; color: orange; font-weight: bold; position: absolute; top: 0px; right: 0px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics .training__statistics__table:before {right: 15px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__table thead {display: none; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__table tbody {display: none; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics .training__label { position: absolute; right: 20px; top: 3px; white-space: nowrap; font-size: 14px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics .training__label { color: orange; position: absolute; right: 35px; top: 3px; white-space: nowrap; font-size: 14px; } }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 form {display: none;} }")
+            S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3 .training__statistics__tracker {display: none;} }")
+            // S10.addStyle("@media (max-width: 768px) { div.row.training .col-xs-3.training__statistics {display: block;} }")
             S10.addStyle(".training__info:not(:last-child):after {display: none;}")
             S10.addStyle(".row > .row {margin: 0px;}")
             S10.addStyle(".training__content__date {font-size:13px;}")
@@ -92,6 +102,20 @@
             for (let item of response_buttons) {
                 item.textContent = "Отправить"
             }
+
+            var a = setInterval(function () {
+                if (typeof jQuery === "undefined") {
+                    console.log("jQ NOT loaded");
+                } else {
+                    clearInterval(a);
+
+                    var logout_button = $("#bs-example-navbar-collapse-1 .navbar-right li:last-child button");
+                    logout_button.prependTo($(".navbar-header"));
+                    logout_button.addClass("logoutButton")
+
+                }
+            }, 100);
+
         }
     };
 
